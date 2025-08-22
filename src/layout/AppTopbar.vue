@@ -11,6 +11,9 @@ import { onMounted, ref } from 'vue';
 const router = useRouter();
 
 // pinia service
+import { useAuthStore } from '@/service/auth';
+const authStore = useAuthStore() // <- inisialisasi store
+
 const auth = async () =>{
     await authStore.authentication();
     if(!localStorage.getItem('token')){
