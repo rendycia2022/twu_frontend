@@ -11,8 +11,11 @@ const sign = ref({});
 const submitted = ref(false);
 
 // pinia service
+import { useAuthStore } from '@/service/auth';
+const authStore = useAuthStore() // <- inisialisasi store
 const auth = async () =>{
     await authStore.authentication();
+    console.clear();
     if(localStorage.getItem('token')){
         router.push({ path: '/dashboard' });
     }
